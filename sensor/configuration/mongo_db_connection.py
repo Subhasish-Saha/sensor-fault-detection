@@ -1,6 +1,7 @@
 import pymongo
 from sensor.constant.database import DATABASE_NAME
 import certifi
+import os 
 
 ca = certifi.where()
 
@@ -13,7 +14,7 @@ class MongoDBClient:
                 mongo_db_url = os.getenv(MONGODB_URL_KEY)
                 if mongo_db_url is None:
                     raise Exception(f"Enviroment Key : {MONGODB_URL_KEY} is not set.")
-                # mongo_db_url = "mongodb+srv://subhasish:<password>@cluster0.r7crs.mongodb.net/?retryWrites=true&w=majority"
+                # mongo_db_url = "mongodb+srv://subhasish:password@cluster0.r7crs.mongodb.net/?retryWrites=true&w=majority"
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile = ca)
             self.client = MongoDBClient.client
             self.database = self.client[database_name]
