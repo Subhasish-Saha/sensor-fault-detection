@@ -1,6 +1,6 @@
 from dbm.ndbm import library
 from setuptools import find_packages,setup
-from typing import List, list
+from typing import List
 import os
 
 def get_requirements()->List[str]:
