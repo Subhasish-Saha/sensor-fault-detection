@@ -39,9 +39,7 @@ class DataIngestion:
         Feature store dataset will be split into train and test file
         """
         try:
-            train_set, test_set = train_test_split(
-                dataframe, test_size=self.data_ingestion_config.train_test_split_ratio
-            )
+            train_set, test_set = train_test_split(dataframe, test_size=self.data_ingestion_config.train_test_split_ratio)
             logging.info("Performed train test split on the dataframe")
             logging.info("Exited split_data_as_train_test method of Data_Ingestion class")
             dir_path = os.path.dirname(self.data_ingestion_config.training_file_path)
@@ -59,7 +57,7 @@ class DataIngestion:
 
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
-            dataframe = self.export_data_info_feature_store
+            dataframe = self.export_data_info_feature_store()
             self.split_data_as_train_test(dataframe = dataframe)
             data_ingestion_artifact = DataIngestionArtifact(trained_file_path = self.data_ingestion_config.training_file_path,
             test_file_path = self.data_ingestion_config.testing_file_path )
