@@ -49,11 +49,11 @@ class SensorData:
             if database_name is None:
                 # collection = self.mongo_client.database['car']
                 collection = self.mongo_client.database[collection_name]
-                print('Executing if block : ',collection)
+                # print('Executing if block : ',collection)
                 
             else:
                 collection = self.mongo_client[database_name][collection_name]
-                print('Executing else block : ',collection)
+                # print('Executing else block : ',collection)
             df = pd.DataFrame(list(collection.find()))
 
             if "_id" in df.columns.to_list():
