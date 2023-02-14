@@ -22,3 +22,5 @@ Air Pressre System(APS) Fault detection
  > conda create -p venv python=3.8.10 -y
  2. Step 2 : Activate the enviroment
  > conda activate venv/
+ 3. Step 3 : Run the bash_profile to get the credentials
+ > source ~/.bash_profile
