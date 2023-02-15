@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 #artifacts
-artifacts/
+artifact/
 
 #vscode
 .vscode/
