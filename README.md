@@ -20,7 +20,9 @@ The problem is to reduce the cost due to unnecessary repairs. So it is required 
 Air Pressre System(APS) Fault detection
  1. Step 1 : create an enviroment
  > conda create -p venv python=3.8.10 -y
- 2. Step 2 : Activate the enviroment
+ 2. Step 2 : install the project requirements
+ > pip install -r requirements.txt
+ 3. Step 3 : Activate the enviroment
  > conda activate venv/
- 3. Step 3 : Run the bash_profile to get the credentials
+ 4. Step 4 : Run the bash_profile to get the credentials
  > source ~/.bash_profile
