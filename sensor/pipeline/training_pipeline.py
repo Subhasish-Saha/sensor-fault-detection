@@ -20,7 +20,7 @@ class TrainPipeline:
 
     def start_data_ingestion(self)->DataIngestionArtifact:
         try:
-            print('Data Ingestion started')
+            print('Data Ingestion Started')
             self.data_ingestion_config = DataIngestionConfig(training_pipeline_config=self.training_pipeline_config)
             logging.info("Starting data ingestion")
             data_ingestion = DataIngestion(data_ingestion_config=self.data_ingestion_config)
@@ -33,7 +33,7 @@ class TrainPipeline:
 
     def start_data_validaton(self,data_ingestion_artifact:DataIngestionArtifact)->DataValidationArtifact:
         try:
-            print('Data validation started')
+            print('Data Validation Started')
             data_validation_config = DataValidationConfig(training_pipeline_config=self.training_pipeline_config)
             data_validation = DataValidation(data_ingestion_artifact=data_ingestion_artifact,
             data_validation_config = data_validation_config
@@ -46,7 +46,7 @@ class TrainPipeline:
 
     def start_data_transformation(self,data_validation_artifact:DataValidationArtifact):
         try:
-            print('Data transformation started')
+            print('Data Transformation Started')
             data_transformation_config = DataTransformationConfig(training_pipeline_config=self.training_pipeline_config)
             data_transformation = DataTransformation(data_validation_artifact=data_validation_artifact,
             data_transformation_config=data_transformation_config
@@ -59,7 +59,7 @@ class TrainPipeline:
 
     def start_model_trainer(self,data_transformation_artifact:DataTransformationArtifact):
         try:
-            print('model trainer started')
+            print('Model Trainer Started')
             model_trainer_config = ModelTrainerConfig(training_pipeline_config=self.training_pipeline_config)
             model_trainer = ModelTrainer(model_trainer_config, data_transformation_artifact)
             model_trainer_artifact = model_trainer.initiate_model_trainer()
@@ -72,7 +72,7 @@ class TrainPipeline:
                                  model_trainer_artifact:ModelTrainerArtifact,
                                 ):
         try:
-            print('model evaluation started')          
+            print('Model Evaluation Started')          
             model_eval_config = ModelEvaluationConfig(self.training_pipeline_config)
             model_eval = ModelEvaluation(model_eval_config, data_validation_artifact, model_trainer_artifact)
             model_eval_artifact = model_eval.initiate_model_evaluation()
@@ -83,7 +83,7 @@ class TrainPipeline:
 
     def start_model_pusher(self,model_eval_artifact:ModelEvaluationArtifact):
         try:
-            print('model pusher started')
+            print('Model Pusher Started')
             model_pusher_config = ModelPusherConfig(training_pipeline_config=self.training_pipeline_config)
             model_pusher = ModelPusher(model_pusher_config, model_eval_artifact)
             model_pusher_artifact = model_pusher.initiate_model_pusher()
