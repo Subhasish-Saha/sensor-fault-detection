@@ -136,3 +136,6 @@ artifact/
 
 #.DS_Store
 .DS_Store
+
+#saved_models
+saved_models/
