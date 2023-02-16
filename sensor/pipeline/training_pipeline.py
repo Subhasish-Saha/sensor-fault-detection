@@ -107,4 +107,5 @@ class TrainPipeline:
                 raise Exception("Trained model is not better than the best model")
             model_pusher_artifact = self.start_model_pusher(model_eval_artifact)
         except Exception as e:
+            TrainPipeline.is_pipeline_running=False
             raise SensorException(e,sys)      
